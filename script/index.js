@@ -36,13 +36,14 @@ const loadCategoriesVideos = (id) => {
     console.log(url)
     fetch(url)
     .then(res => res.json())
-    .then((date) =>{
+    .then((date) =>{  
+        removeActiveButton()
+        // get Button By id Code  and add a new class by add by press key
+        const clickButtonId = document.getElementById(`btn-${id}`);
+        // console.log(getButtonId)
+        clickButtonId.classList.add("active")
         showVideo(date.category);
         
-        // get Button By id Code  and add a new class by add by press key
-        const getButtonId = document.getElementById(`btn-${id}`);54       
-        // console.log(getButtonId)
-        getButtonId.classList.add("active")
     });
 };
 
@@ -53,10 +54,11 @@ const loadVideo = () =>{
     fetch('https://openapi.programming-hero.com/api/phero-tube/videos')
     .then(res => res.json())
     .then((data) => {
-        showVideo(data.videos);
-        document.getElementById('btn-all').classList.add('active')
         removeActiveButton()
+        showVideo(data.videos)
+        document.getElementById('btn-all').classList.add('active')
     }
+
 )
 }
 
@@ -106,12 +108,12 @@ videos.forEach((video) => {
                                     <p>${video.authors[0].profile_name} <i
                                             class="fa-solid fa-certificate text-blue-600"></i></p>
                                     <p class="text-[#171717B3]">${video.others.views} views</p>
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <button class="btn btn-block">Show Details</button>
             </div>
     `
     addVideoWebsite.append(videoCard)

@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Daisy UI -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Tailwind Comand Line  -->
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <title>Document</title>
-</head>
-<body class="w-11/12 mx-auto my-5">
-    <header>
-        <nav class="md:flex justify-between mb-5 ">
-            <div class="text-[32px] font-bold"><span  class="text-[#FF1F3D]">PH</span> Tube</div>
-            <div ><button class="btn">Sort by view</button></div>
-            <div><button class="btn bg-red-600 text-white">Blog</button></div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Daisy UI -->
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet"
+            type="text/css" />
+        <script
+            src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <!-- Tailwind Comand Line  -->
+        <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+        <!-- font awsome  -->
+        <script src="https://kit.fontawesome.com/10a4595e8d.js"
+            crossorigin="anonymous"></script>
+        <title>PH-Tube</title>
+    </head>
+    <body class="w-11/12 mx-auto my-5">
+        <header>
+            <nav class="md:flex justify-between mb-5 ">
+                <div class="text-[32px] font-bold"><span
+                        class="text-[#FF1F3D]">PH</span> Tube</div>
+                <div><button class="btn">Sort by view</button></div>
+                <div><button
+                        class="btn bg-red-600 text-white">Blog</button></div>
+            </nav>
+        </header>
+        <nav id="category_container" class="flex py-5 justify-center gap-5">
+            <button class="btn btn-md bg-[#FF1F3D] text-white">All</button>
         </nav>
-    </header>
-    <nav id="category_container" class="flex py-5 justify-center gap-5">
-        <button class="btn btn-md bg-[#FF1F3D] text-white">All</button>
-    </nav>
 
-    <script src="script/index.js"></script>
-</body>
-</html>
+        <section id="video-container" class="grid  md:grid-cols-4 gap-5 mt-10">
+
+            </section>
+            <script src="script/index.js"></script>
+            <script src="script/loadVideo.js"></script>
+        </body>
+    </html>

@@ -48,6 +48,65 @@ const loadCategoriesVideos = (id) => {
 };
 
 
+// video Details show here 
+const loadVideoDetails =(videoId) =>{
+    console.log(videoId)
+    const url = `https://openapi.programming-hero.com/api/phero-tube/video/${videoId}`
+    fetch(url)
+    .then(res => res.json())
+    .then((data) => displayVideoDetails(data.video))
+}
+
+const displayVideoDetails = (video) =>{
+console.log(video)
+document.getElementById('video_details').showModal()
+const detailsContainer = document.getElementById('details_container_modal')
+detailsContainer.innerHTML =`
+    <form method="dialog">
+        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+      </form>
+      <div class="card bg-base-100 image-full w-96 shadow-sm">
+    <img class="w-full h-[230px] object-cover"
+      src="${video.thumbnail}"
+      alt="Shoes" />
+  </figure>
+  <div class="card-body">
+    <h3 class="text-lg font-bold">${video.title}</h3>
+<p class="py-1"><span class="font-semibold">Author:</span> ${video.authors[0].profile_name}</p>
+<p class="py-1">Views: ${video.others.views}</p
+    <p class="py-1">Post Date: ${video.others.posted_date}</p>
+    <p class=" text-md"> <span class="font-semibold">Description:</span> ${video.description}</p>
+    <div class="card-actions justify-end">
+    </div>
+  </div>
+</div>
+  <figure>
+`
+}
+
+
+// {
+//     "status": true,
+//     "message": "Successfully fetched the video with video id 'aaac'",
+//     "video": {
+//     "category_id": "1003",
+//     "video_id": "aaac",
+//     "thumbnail": "https://i.ibb.co/NTncwqH/luahg-at-pain.jpg",
+//     "title": "Laugh at My Pain",
+//     "authors": [
+//     {
+//     "profile_picture": "https://i.ibb.co/XVHM7NP/kevin.jpg",
+//     "profile_name": "Kevin Hart",
+//     "verified": false
+//     }
+//     ],
+//     "others": {
+//     "views": "1.1K",
+//     "posted_date": "13885"
+//     },
+//     "description": "Comedian Kevin Hart brings his unique brand of humor to life in 'Laugh at My Pain.' With 1.1K views, this show offers a hilarious and candid look into Kevin's personal stories, struggles, and triumphs. It's a laugh-out-loud experience filled with sharp wit, clever insights, and a relatable charm that keeps audiences coming back for more."
+//     }
+//     }
 //Load Video javScript Part start From here -------------------------------------//
 //------------------------------------------------------------------------------//
 const loadVideo = () =>{
@@ -105,18 +164,20 @@ videos.forEach((video) => {
                                    ${video.title} </p>
                                 <div
                                     class="card-actions justify-start grid grid-cols-1 mt-1">
-                                    <p>${video.authors[0].profile_name} <i
-                                            class="fa-solid fa-certificate text-blue-600"></i></p>
+                                    <p>${video.authors[0].profile_name} 
+                                    ${video.authors[0].verified == true ? `<i class="fa-solid fa-certificate text-blue-600"></i>` : ` `}
+                                    </p>
                                     <p class="text-[#171717B3]">${video.others.views} views</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-block">Show Details</button>
+                <button onclick="loadVideoDetails('${video.video_id}')" class="btn btn-block">Show Details</button>
             </div>
     `
     addVideoWebsite.append(videoCard)
 });
 }
 
+  

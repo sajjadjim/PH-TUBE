@@ -15,7 +15,7 @@
         <!-- font awsome  -->
         <script src="https://kit.fontawesome.com/10a4595e8d.js"
             crossorigin="anonymous"></script>
-            <style>
+        <style>
                 .active{
  background-color: red;
  color: white;
@@ -30,38 +30,57 @@
                         class="text-[#FF1F3D]"><i
                             class="fa-solid fa-circle-play"></i> PH</span>
                     Tube</div>
-                <div><button class="btn md:block hidden">Sort by
-                        view</button></div>
+                <div><label class="input">
+                        <svg class="h-[1em] opacity-50"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"><g stroke-linejoin="round"
+                                stroke-linecap="round" stroke-width="2.5"
+                                fill="none" stroke="currentColor"><circle
+                                    cx="11" cy="11" r="8"></circle><path
+                                    d="m21 21-4.3-4.3"></path></g></svg>
+                        <input id="search-input" type="search" required
+                            placeholder="Search" />
+                    </label></div>
                 <div><button
-                        class="btn bg-red-600 text-white">Blog</button></div>
+                        class="btn bg-red-600 text-white">Sort by
+                        view</button></div>
             </nav>
         </header>
         <nav id="category_container" class="flex py-5 justify-center gap-5">
-            <button id="btn-all" onclick="loadVideo()" class="btn btn-md ">All</button>
+            <button id="btn-all" onclick="loadVideo()"
+                class="btn btn-md ">All</button>
         </nav>
 
         <section id="video-container" class="grid  md:grid-cols-4 gap-5 mt-10 ">
 
         </section>
+        <!-- Loader show here  -->
+        <section id="loader" class="text-center hidden">
+            <span class="loading loading-bars loading-xl md:py-10 py-2"></span>
+        </section>
         <!-- No videos  -->
-        <div id="noVideoWebsite" class="flex flex-col justify-center items-center py-20 gap-10">
-            <img class="w-[150px]" src="assets/Icon.png" alt="">
-            <p class="text-[25px] font-semibold text-center">Oops!! Sorry, There is no <br> content here</p>
+        <div id="noVideoWebsite"
+            class="flex flex-col justify-center items-center py-20 gap-10">
+            <img class="w-[150px]" src="assets/Icon.png" alt>
+            <p class="text-[25px] font-semibold text-center">Oops!! Sorry, There
+                is no <br> content here</p>
         </div>
 
         <!-- You can open the modal using ID.showModal() method -->
-<!-- <button class="btn" onclick="my_modal_3.showModal()">open modal</button> -->
-<dialog id="video_details" class="modal">
-  <div class="modal-box">
-<div id="details_container_modal">
-    <form method="dialog">
-        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-      </form>
-      <h3 class="text-lg font-bold">Hello!</h3>
-      <p class="py-4">Press ESC key or click on ✕ button to close</p>
-</div>
-  </div>
-</dialog>
+        <!-- <button class="btn" onclick="my_modal_3.showModal()">open modal</button> -->
+        <dialog id="video_details" class="modal">
+            <div class="modal-box">
+                <div id="details_container_modal">
+                    <form method="dialog">
+                        <button
+                            class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                    </form>
+                    <h3 class="text-lg font-bold">Hello!</h3>
+                    <p class="py-4">Press ESC key or click on ✕ button to
+                        close</p>
+                </div>
+            </div>
+        </dialog>
 
         <script src="script/index.js"></script>
         <script src="script/loadVideo.js"></script>

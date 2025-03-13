@@ -14,10 +14,16 @@
         <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
         <!-- font awsome  -->
         <script src="https://kit.fontawesome.com/10a4595e8d.js"
-            crossorigin="anonymous"></script>\
+            crossorigin="anonymous"></script>
+            <style>
+                .active{
+ background-color: red;
+ color: white;
+                }
+            </style>
         <title>PH-Tube</title>
     </head>
-    <body class="w-11/12 mx-auto my-5">
+    <body class="w-10/12 mx-auto my-5">
         <header>
             <nav class="flex justify-between">
                 <div class="text-[32px] font-bold"><span
@@ -31,12 +37,17 @@
             </nav>
         </header>
         <nav id="category_container" class="flex py-5 justify-center gap-5">
-            <button class="btn btn-md bg-[#FF1F3D] text-white">All</button>
+            <button id="btn-all" onclick="loadVideo()" class="btn btn-md bg-[#FF1F3D] text-white">All</button>
         </nav>
 
-        <section id="video-container" class="grid  md:grid-cols-4 gap-5 mt-10">
+        <section id="video-container" class="grid  md:grid-cols-4 gap-5 mt-10 ">
 
         </section>
+        <!-- No videos  -->
+        <div id="noVideoWebsite" class="flex flex-col justify-center items-center py-20 gap-10">
+            <img class="w-[150px]" src="assets/Icon.png" alt="">
+            <p class="text-[25px] font-semibold text-center">Oops!! Sorry, There is no <br> content here</p>
+        </div>
         <script src="script/index.js"></script>
         <script src="script/loadVideo.js"></script>
     </body>

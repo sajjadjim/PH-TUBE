@@ -70,28 +70,33 @@ const displayVideoDetails = (video) => {
   document.getElementById("video_details").showModal();
   const detailsContainer = document.getElementById("details_container_modal");
   detailsContainer.innerHTML = `
-    <form method="dialog">
-        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-      </form>
-      <div class="card bg-base-100 image-full w-96 shadow-sm">
+  <div class="modal-box">
+    <div class="modal-action">
+      <form method="dialog">
+      <div class="card bg-base-100 image-full w-auto shadow-sm">
+  <figure>
     <img class="w-full h-[230px] object-cover"
-      src="${video.thumbnail}"
-      alt="Shoes" />
+src="${video.thumbnail}"
+alt="Shoes" />
   </figure>
   <div class="card-body">
-    <h3 class="text-lg font-bold">${video.title}</h3>
+<h3 class="text-lg font-bold">${video.title}</h3>
 <p class="py-1"><span class="font-semibold">Author:</span> ${video.authors[0].profile_name}</p>
 <p class="py-1">Views: ${video.others.views}</p
-    <p class="py-1">Post Date: ${video.others.posted_date}</p>
-    <p class=" text-md"> <span class="font-semibold">Description:</span> ${video.description}</p>
+<p class="py-1">Post Date: ${video.others.posted_date}</p>
+<p class=" text-md"> <span class="font-semibold">Description:</span> ${video.description}</p>
     <div class="card-actions justify-end">
+      <button class="btn">Close</button>
     </div>
   </div>
-</div>
-  <figure>
+</div>   
+      </form>
+    </div>
+  </div>
 `;
 };
 
+/*  */
 //Load Video javScript Part start From here -------------------------------------//
 //------------------------------------------------------------------------------//
 const loadVideo = (searchtext = "") => {
